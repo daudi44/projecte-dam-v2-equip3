@@ -21,7 +21,7 @@ public class MainLayout extends AppLayout {
     public MainLayout() {
         createHeader();
 //        eiemgis.add(new Imatge(1, "Ring", "Manolo", "Anillos", new Image("https://i.pinimg.com/1200x/98/5d/60/985d60b311111aabe29bb6a75c6175ca.jpg", "pito")));
-//        eiemgis.add(new Imatge(2, "Test", "Manolo", "Horror", new Image("https://i.blogs.es/949bb7/lotramazon/1366_2000.jpeg", "test")));
+//        eiemgis.add(new Imatge(2, "Test", "Manolo", "Horror", (new Image("https://i.blogs.es/949bb7/lotramazon/1366_2000.jpeg", "test"))));
 
     }
 

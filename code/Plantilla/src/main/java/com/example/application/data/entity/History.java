@@ -5,9 +5,7 @@ import com.vaadin.flow.component.html.Image;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
-@Entity
-public class Imatge extends AbstractEntity {
-
+public class History extends AbstractEntity{
     @NotEmpty
     private Integer id;
 
@@ -21,33 +19,27 @@ public class Imatge extends AbstractEntity {
     private String category = "";
 
     @NotEmpty
-    private Image src;
+    private Integer img_id;
 
-    public Imatge(Integer id, String title, String author, String category, Image src) {
+    public History(Integer id, String title, String author, String category, Integer img_id) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.category = category;
-        this.src = src;
+        this.img_id = img_id;
     }
 
-    public Imatge() {
+    public History() {
 
     }
 
-    public Image getSrc() {
-        return src;
-    }
-
-    public void setSrc(Image src) {
-        this.src = src;
-    }
-
-    public int getIdImg() {
+    @Override
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    @Override
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -67,13 +59,19 @@ public class Imatge extends AbstractEntity {
         this.author = author;
     }
 
-    public String getTheme() {
+    public String getCategory() {
         return category;
     }
 
-    public void setTheme(String theme) {
-        this.category = theme;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Integer getImg_id() {
+        return img_id;
+    }
+
+    public void setImg_id(Integer img_id) {
+        this.img_id = img_id;
     }
 }
-
-
