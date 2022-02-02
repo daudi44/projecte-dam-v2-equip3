@@ -2,14 +2,19 @@ package com.example.application.data.entity;
 
 import com.example.application.data.AbstractEntity;
 import com.vaadin.flow.component.html.Image;
-import javax.persistence.Entity;
+import com.vaadin.flow.server.StreamResource;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 @Entity
-public class Imatge extends AbstractEntity {
-
-    @NotEmpty
-    private Integer id;
+public class Imatge extends AbstractEntity{
 
     @NotEmpty
     private String title = "";
@@ -20,35 +25,30 @@ public class Imatge extends AbstractEntity {
     @NotEmpty
     private String category = "";
 
-    @NotEmpty
-    private Image src;
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] src;
 
-    public Imatge(Integer id, String title, String author, String category, Image src) {
-        this.id = id;
+    public Imatge(String title, String author, String theme) {
         this.title = title;
         this.author = author;
-        this.category = category;
-        this.src = src;
+        this.theme = theme;
     }
 
     public Imatge() {
 
     }
+    public static byte[] getBytesFromFile(String imagePath) throws IOException {
+        File file = new File(imagePath);
+        return Files.readAllBytes(file.toPath());
+    }
 
-    public Image getSrc() {
+    public byte[] getSrc() {
         return src;
     }
 
-    public void setSrc(Image src) {
+    public void setSrc(byte[] src) {
         this.src = src;
-    }
-
-    public int getIdImg() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -75,5 +75,3 @@ public class Imatge extends AbstractEntity {
         this.category = theme;
     }
 }
-
-
