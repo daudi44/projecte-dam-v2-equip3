@@ -23,7 +23,7 @@ public class Imatge extends AbstractEntity{
     private String author = "";
 
     @NotEmpty
-    private String theme = "";
+    private String category = "";
 
     @Lob
     @Basic(fetch = FetchType.LAZY)
@@ -68,10 +68,10 @@ public class Imatge extends AbstractEntity{
     }
 
     public String getTheme() {
-        return theme;
+        return category;
     }
 
     public void setTheme(String theme) {
-        this.theme = theme;
+        this.category = theme;
     }
 }
